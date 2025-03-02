@@ -15,7 +15,8 @@ h1 {
 button {
     background-color: #28a745;
     color: white;
-    padding: 10px 15px;
+    width: 50%;
+    padding: 5px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -88,9 +89,20 @@ form input[type="submit"]:hover {
     background-color: #c82333;
 }
 
+.addmodal {
+    /* margin: 10px; */
+    display: block;
+}
+
+.modal input {
+    width: 50%;
+}
+
+
+
 /* Modal */
 .modal {
-    display: none;
+    /* display: none; */
     /* Giữ nguyên */
     position: fixed;
     z-index: 1000;

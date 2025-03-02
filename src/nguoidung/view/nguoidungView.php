@@ -76,19 +76,19 @@
             <h2>Thêm người dùng mới</h2>
             <form method="POST" action="/nguoidung/add" enctype="multipart/form-data">
                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                <label for="name">Họ và tên:</label>
+                <label class="addmodal" for="name">Họ và tên:</label>
                 <input type="text" name="name" required>
                 <br>
-                <label for="email">Email:</label>
+                <label class="addmodal" for="email">Email:</label>
                 <input type="email" name="email" required>
                 <br>
-                <label for="sdt">Số điện thoại:</label>
+                <label class="addmodal" for="sdt">Số điện thoại:</label>
                 <input type="text" name="sdt">
                 <br>
-                <label for="diachi">Địa chỉ:</label>
+                <label class="addmodal" for="diachi">Địa chỉ:</label>
                 <textarea name="diachi"></textarea>
                 <br>
-                <label for="hinhanhnd">Hình ảnh:</label>
+                <label class="addmodal" for="hinhanhnd">Hình ảnh:</label>
                 <input type="file" name="hinhanhnd" accept="image/*">
                 <br>
                 <button type="submit" name="add_nguoidung">Lưu</button>
