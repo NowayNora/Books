@@ -8,7 +8,7 @@
 <!-- Nút mở form thêm -->
 <button onclick="openAddQuyenHanModal()">Thêm quyền mới</button>
 
-<table border="1">
+<table border="1" class="Table_Margin">
     <thead>
         <tr>
             <th>ID</th>
@@ -19,23 +19,23 @@
     </thead>
     <tbody>
         <?php foreach ($quyenhans as $quyen): ?>
-        <tr>
-            <td><?= $quyen['ID_QUYEN'] ?></td>
-            <td><?= $quyen['TENQUYEN'] ?></td>
-            <td><?= $quyen['MOTAQUYEN'] ?></td>
-            <td>
-                <a href="" onclick="openEditQuyenModal(event, 
+            <tr>
+                <td><?= $quyen['ID_QUYEN'] ?></td>
+                <td><?= $quyen['TENQUYEN'] ?></td>
+                <td><?= $quyen['MOTAQUYEN'] ?></td>
+                <td>
+                    <a href="" onclick="openEditQuyenModal(event, 
                     <?= $quyen['ID_QUYEN'] ?>, 
                     '<?= htmlspecialchars($quyen['TENQUYEN'], ENT_QUOTES, 'UTF-8') ?>', 
                     '<?= htmlspecialchars($quyen['MOTAQUYEN'], ENT_QUOTES, 'UTF-8') ?>')">Sửa</a>
 
-                <form action="/quyenhan/delete" method="POST" style="display:inline;">
-                    <input type="hidden" name="id_quyen" value="<?= $quyen['ID_QUYEN'] ?>" required>
-                    <input type="submit" value="Xóa" onclick="return confirm('Bạncó chắc chắn muốn xóa không?');">
-                    <!-- <a href="/quyenhan/delete" onclick="return confirm('Bạn có chắc chắn không?')">Xóa</a> -->
-                </form>
-            </td>
-        </tr>
+                    <form action="/quyenhan/delete" method="POST" style="display:inline;">
+                        <input type="hidden" name="id_quyen" value="<?= $quyen['ID_QUYEN'] ?>" required>
+                        <input type="submit" value="Xóa" onclick="return confirm('Bạncó chắc chắn muốn xóa không?');">
+                        <!-- <a href="/quyenhan/delete" onclick="return confirm('Bạn có chắc chắn không?')">Xóa</a> -->
+                    </form>
+                </td>
+            </tr>
         <?php endforeach; ?>
     </tbody>
 </table>

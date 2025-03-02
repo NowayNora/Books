@@ -17,7 +17,7 @@
     <!-- Nút mở form thêm -->
     <button onclick="openAddNguoiDungModal()">Thêm người dùng mới</button>
 
-    <table border="1">
+    <table border="1" class="Table_Margin">
         <thead>
             <tr>
                 <th>ID</th>
@@ -31,40 +31,40 @@
         </thead>
         <tbody>
             <?php if (!empty($nguoidungs)): ?>
-            <?php foreach ($nguoidungs as $nguoidung): ?>
-            <tr>
-                <td><?= htmlspecialchars($nguoidung['ID_NGUOIDUNG']) ?></td>
-                <td><?= htmlspecialchars($nguoidung['NAME']) ?></td>
-                <td><?= htmlspecialchars($nguoidung['EMAIL']) ?></td>
-                <td><?= htmlspecialchars($nguoidung['SDT']) ?></td>
-                <td><?= htmlspecialchars($nguoidung['DIACHI']) ?></td>
-                <td>
-                    <?php if (!empty($nguoidung['HINHANHND'])): ?>
-                    <img src="data:image/jpeg;base64,<?= base64_encode($nguoidung['HINHANHND']) ?>" alt="Hình ảnh"
-                        width="100">
-                    <?php else: ?>
-                    Không có ảnh
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <a href="" onclick="openEditNguoiDungModal(event, 
+                <?php foreach ($nguoidungs as $nguoidung): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($nguoidung['ID_NGUOIDUNG']) ?></td>
+                        <td><?= htmlspecialchars($nguoidung['NAME']) ?></td>
+                        <td><?= htmlspecialchars($nguoidung['EMAIL']) ?></td>
+                        <td><?= htmlspecialchars($nguoidung['SDT']) ?></td>
+                        <td><?= htmlspecialchars($nguoidung['DIACHI']) ?></td>
+                        <td>
+                            <?php if (!empty($nguoidung['HINHANHND'])): ?>
+                                <img src="data:image/jpeg;base64,<?= base64_encode($nguoidung['HINHANHND']) ?>" alt="Hình ảnh"
+                                    width="100">
+                            <?php else: ?>
+                                Không có ảnh
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <a href="" onclick="openEditNguoiDungModal(event, 
                         <?= $nguoidung['ID_NGUOIDUNG'] ?>, 
                         '<?= htmlspecialchars($nguoidung['NAME']) ?>', 
                         '<?= htmlspecialchars($nguoidung['EMAIL']) ?>', 
                         '<?= htmlspecialchars($nguoidung['SDT']) ?>', 
                         '<?= htmlspecialchars($nguoidung['DIACHI']) ?>')">Sửa</a>
-                    <form action="/nguoidung/delete" method="POST" style="display:inline;">
-                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                        <input type="hidden" name="id_nguoidung" value="<?= $nguoidung['ID_NGUOIDUNG'] ?>" required>
-                        <input type="submit" value="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
-                    </form>
-                </td>
-            </tr>
-            <?php endforeach; ?>
+                            <form action="/nguoidung/delete" method="POST" style="display:inline;">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                <input type="hidden" name="id_nguoidung" value="<?= $nguoidung['ID_NGUOIDUNG'] ?>" required>
+                                <input type="submit" value="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             <?php else: ?>
-            <tr>
-                <td colspan="7">Không có dữ liệu người dùng.</td>
-            </tr>
+                <tr>
+                    <td colspan="7">Không có dữ liệu người dùng.</td>
+                </tr>
             <?php endif; ?>
         </tbody>
     </table>
