@@ -1,0 +1,28 @@
+/* Nền tối cho modal */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Giao diện form */
+form {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.form-control {
+    text-align: center;
+    font-weight: bold;
+}
+
+#TONGSOLUONG,
+#TONGTIEN {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffeeba;
+    padding: 10px;
+}
+.page-link:hover {
+    background-color: #495057 !important; /* Màu tối hơn khi di chuột vào */
+    color: #fff !important;
+}
