@@ -31,40 +31,40 @@
         </thead>
         <tbody>
             <?php if (!empty($nguoidungs)): ?>
-                <?php foreach ($nguoidungs as $nguoidung): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($nguoidung['ID_NGUOIDUNG']) ?></td>
-                        <td><?= htmlspecialchars($nguoidung['NAME']) ?></td>
-                        <td><?= htmlspecialchars($nguoidung['EMAIL']) ?></td>
-                        <td><?= htmlspecialchars($nguoidung['SDT']) ?></td>
-                        <td><?= htmlspecialchars($nguoidung['DIACHI']) ?></td>
-                        <td>
-                            <?php if (!empty($nguoidung['HINHANHND'])): ?>
-                                <img src="data:image/jpeg;base64,<?= base64_encode($nguoidung['HINHANHND']) ?>" alt="Hình ảnh"
-                                    width="100">
-                            <?php else: ?>
-                                Không có ảnh
-                            <?php endif; ?>
-                        </td>
-                        <td>
-                            <a href="" onclick="openEditNguoiDungModal(event, 
+            <?php foreach ($nguoidungs as $nguoidung): ?>
+            <tr>
+                <td><?= htmlspecialchars($nguoidung['ID_NGUOIDUNG']) ?></td>
+                <td><?= htmlspecialchars($nguoidung['NAME']) ?></td>
+                <td><?= htmlspecialchars($nguoidung['EMAIL']) ?></td>
+                <td><?= htmlspecialchars($nguoidung['SDT']) ?></td>
+                <td><?= htmlspecialchars($nguoidung['DIACHI']) ?></td>
+                <td>
+                    <?php if (!empty($nguoidung['HINHANHND'])): ?>
+                    <img src="data:image/jpeg;base64,<?= base64_encode($nguoidung['HINHANHND']) ?>" alt="Hình ảnh"
+                        width="100">
+                    <?php else: ?>
+                    Không có ảnh
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <a href="" onclick="openEditNguoiDungModal(event, 
                         <?= $nguoidung['ID_NGUOIDUNG'] ?>, 
                         '<?= htmlspecialchars($nguoidung['NAME']) ?>', 
                         '<?= htmlspecialchars($nguoidung['EMAIL']) ?>', 
                         '<?= htmlspecialchars($nguoidung['SDT']) ?>', 
                         '<?= htmlspecialchars($nguoidung['DIACHI']) ?>')">Sửa</a>
-                            <form action="/nguoidung/delete" method="POST" style="display:inline;">
-                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                                <input type="hidden" name="id_nguoidung" value="<?= $nguoidung['ID_NGUOIDUNG'] ?>" required>
-                                <input type="submit" value="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+                    <form action="/nguoidung/delete" method="POST" style="display:inline;">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                        <input type="hidden" name="id_nguoidung" value="<?= $nguoidung['ID_NGUOIDUNG'] ?>" required>
+                        <input type="submit" value="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
             <?php else: ?>
-                <tr>
-                    <td colspan="7">Không có dữ liệu người dùng.</td>
-                </tr>
+            <tr>
+                <td colspan="7">Không có dữ liệu người dùng.</td>
+            </tr>
             <?php endif; ?>
         </tbody>
     </table>
@@ -74,21 +74,22 @@
         <div class="modal-content">
             <!-- <span class="close" onclick="closeModal('addNguoiDungModal')">&times;</span> -->
             <h2>Thêm người dùng mới</h2>
-            <form method="POST" action="/nguoidung/add" enctype="multipart/form-data">
+            <form method="POST" action="/nguoidung/add" enctype="multipart/form-data"
+                style="display: flex;flex-direction: column;align-content: center;align-items: center;">
                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                <label class="addmodal" for="name">Họ và tên:</label>
-                <input type="text" name="name" required>
+                <label for="name">Họ và tên:</label>
+                <input type="text" name="name" required style="width: 450px;">
                 <br>
-                <label class="addmodal" for="email">Email:</label>
-                <input type="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required style="width: 450px;">
                 <br>
-                <label class="addmodal" for="sdt">Số điện thoại:</label>
-                <input type="text" name="sdt">
+                <label for="sdt">Số điện thoại:</label>
+                <input type="text" name="sdt" style="width: 450px;">
                 <br>
-                <label class="addmodal" for="diachi">Địa chỉ:</label>
-                <textarea name="diachi"></textarea>
+                <label for="diachi">Địa chỉ:</label>
+                <textarea name="diachi" style="width: 450px;"></textarea>
                 <br>
-                <label class="addmodal" for="hinhanhnd">Hình ảnh:</label>
+                <label for="hinhanhnd">Hình ảnh:</label>
                 <input type="file" name="hinhanhnd" accept="image/*">
                 <br>
                 <button type="submit" name="add_nguoidung">Lưu</button>
