@@ -77,6 +77,8 @@ endforeach;
                 <li><a href="/taikhoan" id="taikhoan-list">Danh sách tài khoản</a></li>
                 <li><a href="/nguoidung" id="nguoidung-list">Danh sách người dùng</a></li>
                 <li><a href="/quyenhan" id="quyenhan-list">Quyền hạn</a></li>
+                <li><a href="/donban" id="donban-list">Đơn bán</a></li>
+                <li><a href="/donnhap" id="donnhap-list">Đơn nhập</a></li>
                 <li><a href="/thongke" id="thongke-list">Thống Kê</a></li>
 
             </ul>
